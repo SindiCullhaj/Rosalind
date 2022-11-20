@@ -1,0 +1,11 @@
+import math
+s = "TGAGCGGATTCACACCTACGCAAGCCAAAGGGTATTTGTCCTAAAACCAATTAGCGCTTATAGCATACTCCTCAAAGGGCGAGATATATACCAC"
+A = "0.058 0.111 0.163 0.234 0.289 0.335 0.379 0.467 0.480 0.552 0.628 0.645 0.714 0.758 0.811 0.878 0.904"
+B,prob,gc = [],0,[float(i) for i in A.split()]
+for x in gc:
+    p = 0
+    l = {'A':(1-x)/2,'T':(1-x)/2,'C':x/2,'G':x/2}
+    for y in s:
+        p = p+math.log10(l[y])
+    B.append(p)
+print(" ".join([str(e) for e in B]))
